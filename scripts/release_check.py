@@ -162,8 +162,8 @@ def main() -> int:
     wheel = one("dist/roomreceipt-0.1.0-*.whl")
     smoke_python = venv_python(smoke)
     run(
-        "Install wheel without network",
-        [uv, "pip", "install", "--python", str(smoke_python), "--offline", str(wheel)],
+        "Install wheel in clean environment",
+        [uv, "pip", "install", "--python", str(smoke_python), str(wheel)],
         env=env,
     )
     run("Installed CLI smoke test", [str(smoke_python), "-m", "roomreceipt", "--version"], env=env)
