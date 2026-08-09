@@ -28,7 +28,7 @@ jobs:
       - run: uv sync --locked --all-extras
       - run: uv run python scripts/build_site.py --output .site-build
       - run: uv run python scripts/site_check.py .site-build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: .site-build
 
