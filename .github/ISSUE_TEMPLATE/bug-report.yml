@@ -1,0 +1,36 @@
+name: Bug report
+description: Report incorrect behavior, a verifier failure, or an unsafe archive case.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach real rental evidence or private addresses. Use a minimal synthetic case.
+  - type: input
+    id: version
+    attributes:
+      label: RoomReceipt version
+      placeholder: roomreceipt 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command and output
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+    validations:
+      required: true
+  - type: dropdown
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - I confirm this report contains no real address, tenancy evidence, or personal photo.
+    validations:
+      required: true

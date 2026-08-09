@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "roomreceipt"
+version = "0.1.0"
+description = "Offline, tamper-evident move-in and move-out photo evidence bundles"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+  { name = "KanadeK", email = "121669563+KanadeK@users.noreply.github.com" },
+]
+keywords = [
+  "rental",
+  "tenant",
+  "inspection",
+  "evidence",
+  "photos",
+  "security-deposit",
+  "local-first",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Utilities",
+]
+dependencies = ["Pillow>=10.4,<13"]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2,<2",
+  "hatchling>=1.27,<2",
+  "mypy>=1.15,<2",
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<8",
+  "ruff>=0.11,<1",
+  "twine>=6,<7",
+]
+
+[project.scripts]
+roomreceipt = "roomreceipt.cli:entrypoint"
+
+[project.urls]
+Homepage = "https://github.com/KanadeK/roomreceipt"
+Documentation = "https://kanadek.github.io/roomreceipt/"
+Issues = "https://github.com/KanadeK/roomreceipt/issues"
+Source = "https://github.com/KanadeK/roomreceipt"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/roomreceipt"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF", "SIM", "C4", "PTH"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["roomreceipt"]
+mypy_path = "src"
+warn_unreachable = true
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers --basetemp=.pytest-tmp"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["roomreceipt"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true

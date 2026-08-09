@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If RoomReceipt helps your work, please cite this software."
+title: RoomReceipt
+version: 0.1.0
+date-released: 2026-08-09
+type: software
+authors:
+  - family-names: KanadeK
+repository-code: "https://github.com/KanadeK/roomreceipt"
+url: "https://kanadek.github.io/roomreceipt/"
+license: MIT
+abstract: "Offline, tamper-evident move-in and move-out photo evidence bundles."

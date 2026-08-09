@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose a focused improvement that preserves the evidence claims boundary.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the renter or reviewer workflow, not only a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Verifiable outcome
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Integrity and privacy impact
+      description: Explain whether this changes what a seal, report, or bundle claims.
+    validations:
+      required: true

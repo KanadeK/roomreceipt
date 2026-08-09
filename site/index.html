@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="RoomReceipt turns move-in and move-out photos into offline, tamper-evident evidence bundles.">
+  <meta property="og:title" content="RoomReceipt">
+  <meta property="og:description" content="A local receipt for how the room looked.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kanadek.github.io/roomreceipt/">
+  <meta property="og:image" content="https://kanadek.github.io/roomreceipt/assets/hero.jpg">
+  <title>RoomReceipt | Offline rental photo evidence bundles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav shell" aria-label="Primary navigation">
+    <a class="wordmark" href="#top">RoomReceipt</a>
+    <div class="nav-links">
+      <a href="demo/">Sample report</a>
+      <a href="https://github.com/KanadeK/roomreceipt">GitHub</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Local rental evidence</p>
+        <h1><span>A receipt for how</span><span>the room looked.</span></h1>
+        <p>Turn scattered move-in and move-out photos into a local report anyone can verify.</p>
+        <div class="actions">
+          <a class="button primary" href="demo/">Open sample report</a>
+          <a class="button secondary" href="downloads/roomreceipt-v0.1.0-example.roomreceipt.zip">Verify the sample</a>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src="assets/hero.jpg" width="1536" height="1024" alt="Phone, blank condition checklist, keys, and tape measure beside a marked apartment wall">
+      </figure>
+    </header>
+
+    <section class="promise shell" aria-labelledby="promise-title">
+      <h2 id="promise-title">No account. No upload. No automated verdict.</h2>
+      <p>RoomReceipt copies your files into a clear case structure, records their SHA-256 identities, pairs repeatable views, and keeps visual metrics separate from human judgment.</p>
+      <dl>
+        <div><dt>Original bytes</dt><dd>Preserved</dd></div>
+        <div><dt>Cloud dependency</dt><dd>None</dd></div>
+        <div><dt>Verifier</dt><dd>Included</dd></div>
+        <div><dt>Legal advice</dt><dd>Never</dd></div>
+      </dl>
+    </section>
+
+    <section class="pairing shell" aria-labelledby="pairing-title">
+      <header>
+        <h2 id="pairing-title">The same view, made reviewable.</h2>
+        <p>A stable slot name connects move-in and move-out images. The difference image highlights pixels, not blame.</p>
+      </header>
+      <div class="photo-sequence">
+        <figure><img src="assets/before.jpg" width="960" height="640" alt="Synthetic move-in view of a living room wall"><figcaption>Move-in source</figcaption></figure>
+        <figure><img src="assets/after.jpg" width="960" height="640" alt="Synthetic move-out view with an added wall mark"><figcaption>Move-out source</figcaption></figure>
+        <figure class="difference"><img src="assets/diff.jpg" width="512" height="384" alt="Generated visual difference aid for the two wall images"><figcaption>Difference aid</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="system shell" aria-labelledby="system-title">
+      <header>
+        <h2 id="system-title">Useful after the screenshots leave your phone.</h2>
+        <p>The case is ordinary files and JSON. You can inspect it without an account or a hosted service.</p>
+      </header>
+      <div class="system-grid">
+        <article class="wide">
+          <h3>Evidence register</h3>
+          <p>Room, item, view, note, dimensions, capture metadata, file size, and SHA-256 stay connected to each image.</p>
+          <code>evidence/move-in/living-room/living-north-wall.jpg</code>
+        </article>
+        <article>
+          <h3>Repeatable pairing</h3>
+          <p>Use the same slot key at move-out. Missing views remain visible instead of being guessed.</p>
+        </article>
+        <article>
+          <h3>Independent verification</h3>
+          <p>Verify a directory or portable ZIP. Changed bytes, missing members, duplicate names, and unsafe paths fail closed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="boundary shell" aria-labelledby="boundary-title">
+      <div>
+        <h2 id="boundary-title">A narrow claim is a stronger claim.</h2>
+        <p>Verification confirms that listed bytes still match a seal. It cannot establish capture time, authorship, legal admissibility, or whether a photo was edited before sealing.</p>
+      </div>
+      <pre aria-label="RoomReceipt verification command"><code>roomreceipt verify bright-street-demo.roomreceipt.zip
+verified 29 files: 0171...d9b</code></pre>
+    </section>
+
+    <section class="install shell" aria-labelledby="install-title">
+      <h2 id="install-title">Build a case in minutes.</h2>
+      <pre><code>uv tool install "git+https://github.com/KanadeK/roomreceipt.git@v0.1.0"
+roomreceipt init my-case --title "Move-in" --property "14 Bright Street"
+roomreceipt import my-case move-in move-in.csv
+roomreceipt seal my-case
+roomreceipt bundle my-case</code></pre>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/KanadeK/roomreceipt#quick-start">Read the guide</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <p>Open source under MIT. Documentation software, not legal advice.</p>
+    <div><a href="https://github.com/KanadeK/roomreceipt">Source</a><a href="https://github.com/KanadeK/roomreceipt/issues">Issues</a><a href="demo/">Demo</a></div>
+  </footer>
+</body>
+</html>
