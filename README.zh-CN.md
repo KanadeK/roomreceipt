@@ -97,6 +97,8 @@ uv run python scripts/release_check.py
 
 发布门禁包括 Ruff、严格 mypy、90% 分支覆盖率、48 项首发测试、示例确定性重建、两次分隔构建字节比对、目录/ZIP 验证、站点链接与无障碍检查、密钥扫描、wheel/sdist 构建、Twine 元数据验证、干净虚拟环境安装和 Release SHA-256 校验。
 
+如果 Twine 报 `Invalid distribution metadata`，不要跳过校验。保留 `pyproject.toml` 中已验证的 Hatchling 精确版本，运行 `uv lock --check`，再重建发行包。完整流程见 [docs/repair.md](docs/repair.md)。
+
 ## 失败修复
 
 - `HASH_MISMATCH`：不要直接重新封存。先从备份恢复预期原件；若变化确实经过审核且是有意的，再执行 `roomreceipt seal CASE`。

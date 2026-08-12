@@ -2,7 +2,7 @@
 
 All notable changes are documented here.
 
-## 0.1.0 - 2026-08-09
+## 0.1.0 - 2026-08-12
 
 - Added the full case, slot, single-import, and atomic CSV import workflow.
 - Added EXIF capture metadata, image dimension, MIME, byte size, and SHA-256 recording.

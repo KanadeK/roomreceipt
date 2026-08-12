@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If RoomReceipt helps your work, please cite this software."
 title: RoomReceipt
 version: 0.1.0
-date-released: 2026-08-09
+date-released: 2026-08-12
 type: software
 authors:
   - family-names: KanadeK

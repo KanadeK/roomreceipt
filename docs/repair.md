@@ -100,6 +100,19 @@ Get-FileHash build/example-b/*.zip -Algorithm SHA256
 
 Different hashes mean release is blocked. Inspect JSON timestamps, file order, ZIP timestamps, permissions, and compressed bytes.
 
+## Invalid distribution metadata
+
+The isolated builder can otherwise resolve a newer backend than the development environment. A new backend may emit a Core Metadata version that the current validation or upload path does not yet accept.
+
+```bash
+uv lock --check
+uv sync --locked --all-extras
+uv run python -m build
+uv run twine check dist/*
+```
+
+Keep the exact, verified Hatchling version in both `[build-system].requires` and the development dependencies. Upgrade it only in a reviewed change that passes Twine locally and in CI. Do not remove `twine check`, use `--no-verify`, or publish an asset that failed metadata validation.
+
 ## Downloaded Release asset fails verification
 
 ```bash

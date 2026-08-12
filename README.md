@@ -204,6 +204,7 @@ Start with the exact failed line. Do not reseal or regenerate evidence just to m
 | `MOVE_IN_MISSING` | an expected slot lacks baseline evidence | Import the correct move-in file or remove the slot by editing `case.json` only after review. Rerun audit before sealing. |
 | `TIMEZONE_UNKNOWN` | common EXIF timestamps have no offset | Corroborate with other records or re-import with an explicit ISO 8601 `captured_at` offset. |
 | deterministic example check fails | committed fixture was edited or generated with changed code | Inspect the diff. If the generator change is intentional, run `uv run python scripts/generate_example_data.py`, then review every binary change. |
+| `Invalid distribution metadata` | the build backend emitted a metadata version the validation tool does not yet support | Keep the verified Hatchling pin, run `uv lock --check`, then rebuild. Do not skip Twine validation. |
 | bundle verification fails after download | transfer corruption or wrong asset | Download again and compare the asset to `SHA256SUMS`. |
 | Pages check reports a broken link | generated demo or download is missing | Run `uv run python scripts/build_site.py --output .site-build`, then `uv run python scripts/site_check.py .site-build`. |
 | GitHub Actions fails | remote environment differs | Run `gh run list --repo KanadeK/roomreceipt`, then `gh run view RUN_ID --log-failed`. Reproduce locally before changing CI. |
